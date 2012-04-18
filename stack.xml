@@ -1,0 +1,10 @@
+<stack>
+  <description brief="multi_robot_coordination">multi_robot_coordination</description>
+  <author>Dirk Thomas</author>
+  <license>BSD</license>  
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/multi_robot_coordination</url>
+
+  <depend stack="ros" />
+
+</stack>

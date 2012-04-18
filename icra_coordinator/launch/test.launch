@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="icra_coordinator" type="icra_coordinator.py" name="icra_coordinator"/>
+  <node pkg="pr2_service_interface" type="pr2_service_mock.py" name="pr2_service_mock"/>
+</launch>
