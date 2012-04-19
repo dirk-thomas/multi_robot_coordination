@@ -1,0 +1,4 @@
+<launch>
+  <arg name="remote_pr2" default="rosrpc://localhost:11610"/>
+  <node pkg="rosproxy" type="register.py" name="register_pr2_trigger_pick_up" args="service icra/pr2/trigger_pick_up $(arg remote_pr2)"/>
+</launch>

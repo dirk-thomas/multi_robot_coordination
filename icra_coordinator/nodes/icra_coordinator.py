@@ -14,7 +14,6 @@ class IcraCoordinator:
     def __init__(self):
         self._timer = None
         rospy.Service('icra/notify_pick_up_completed', NotifyPickUpCompleted, self.notify_pick_up_completed)
-        rospy.wait_for_service('icra/pr2/trigger_pick_up')
         rospy.loginfo('IcraCoordinator ready')
 
         self._timer = Timer(3.0, self._trigger_pick_up)
