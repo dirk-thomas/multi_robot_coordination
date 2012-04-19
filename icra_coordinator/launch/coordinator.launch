@@ -1,7 +1,7 @@
 <launch>
-  <node pkg="icra_coordinator" type="icra_coordinator.py" name="icra_coordinator"/>
-  <node pkg="rosproxy" type="proxy.py" name="proxy">
-    <rosparam param="services">[ icra/notify_pick_up_completed ]</rosparam>
+  <node pkg="icra_coordinator" type="icra_coordinator.py" name="icra_coordinator" ns="icra"/>
+  <node pkg="rosproxy" type="proxy.py" name="proxy" ns="icra">
+    <rosparam param="services">[ pr2/notify_pick_up_completed ]</rosparam>
     <param name="tcpros_port" value="11600"/>
     <param name="xmlrpc_port" value="11601"/>
   </node>

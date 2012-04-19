@@ -14,7 +14,7 @@ class Pr2ServiceMock:
     def __init__(self):
         self._callback_id = 0
         self._timer = None
-        self._pick_up_service = ServiceHandler('icra/pr2/trigger_pick_up', TriggerPickUp, self._trigger_pick_up, 'icra/notify_pick_up_completed', NotifyPickUpCompleted)
+        self._pick_up_service = ServiceHandler('pr2/trigger_pick_up', TriggerPickUp, self._trigger_pick_up, 'pr2/notify_pick_up_completed', NotifyPickUpCompleted)
         rospy.loginfo('Pr2ServiceMock ready')
 
     def _trigger_pick_up(self, id):
@@ -25,7 +25,7 @@ class Pr2ServiceMock:
         return TriggerPickUpResponse()
 
     def _pick_up_completed(self):
-        rospy.loginfo('Pr2ServiceMock._pick_up_completed()')
+        rospy.loginfo('Pr2ServiceMock._pick_up_completed()\n')
         self._pick_up_service.notify(self._callback_id)
 
 

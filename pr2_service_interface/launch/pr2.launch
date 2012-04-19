@@ -1,7 +1,7 @@
 <launch>
-  <node pkg="pr2_service_interface" type="pr2_service_mock.py" name="pr2_service_mock"/>
-  <node pkg="rosproxy" type="proxy.py" name="proxy">
-    <rosparam param="services">[ icra/pr2/trigger_pick_up ]</rosparam>
+  <node pkg="pr2_service_interface" type="pr2_service_mock.py" name="pr2_service_mock" ns="icra"/>
+  <node pkg="rosproxy" type="proxy.py" name="proxy" ns="icra">
+    <rosparam param="services">[ pr2/trigger_pick_up ]</rosparam>
     <param name="tcpros_port" value="11610"/>
     <param name="xmlrpc_port" value="11611"/>
   </node>
