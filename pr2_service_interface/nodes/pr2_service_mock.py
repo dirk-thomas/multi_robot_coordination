@@ -4,10 +4,11 @@ from threading import Timer
 
 import roslib;
 roslib.load_manifest('icra_coordinator')
+roslib.load_manifest('std_srvs')
 import rospy
 
 from icra_coordinator import ServiceHandler
-from icra_coordinator.srv import *
+from std_srvs.srv import *
 
 class Pr2ServiceMock:
 

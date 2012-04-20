@@ -4,12 +4,13 @@ from threading import Timer
 
 import roslib;
 roslib.load_manifest('icra_coordinator')
+roslib.load_manifest('std_srvs')
 roslib.load_manifest('arm_service_interface')
 roslib.load_manifest('pr2_service_interface')
 roslib.load_manifest('vehicle_service_interface')
 import rospy
 
-from icra_coordinator.srv import *
+from std_srvs.srv import *
 
 class IcraCoordinator:
 
