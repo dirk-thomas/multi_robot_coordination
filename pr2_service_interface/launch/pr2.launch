@@ -1,8 +1,13 @@
 <launch>
   <node pkg="pr2_service_interface" type="pr2_service_mock.py" name="pr2_service_mock" ns="icra"/>
+
   <node pkg="rosproxy" type="proxy.py" name="proxy" ns="icra">
-    <rosparam param="services">[ pr2/trigger_pick_up ]</rosparam>
-    <param name="tcpros_port" value="11610"/>
-    <param name="xmlrpc_port" value="11611"/>
+    <rosparam param="services">[ pr2/trigger_pick_up, pr2/trigger_place_down ]</rosparam>
+    <param name="tcpros_port" value="11620"/>
+    <param name="xmlrpc_port" value="11621"/>
   </node>
+
+  <arg name="remote_coordinator" default="rosrpc://localhost:11600"/>
+  <node pkg="rosproxy" type="register.py" name="register_pr2_notify_pick_up" args="service pr2/notify_pick_up_completed $(arg remote_coordinator)" ns="icra"/>
+  <node pkg="rosproxy" type="register.py" name="register_pr2_notify_place_down" args="service pr2/notify_place_down_completed $(arg remote_coordinator)" ns="icra"/>
 </launch>

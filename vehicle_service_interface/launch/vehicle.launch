@@ -1,0 +1,13 @@
+<launch>
+  <node pkg="vehicle_service_interface" type="vehicle_service_mock.py" name="vehicle_service_mock" ns="icra"/>
+
+  <node pkg="rosproxy" type="proxy.py" name="proxy" ns="icra">
+    <rosparam param="services">[ vehicle/trigger_pick_up, vehicle/trigger_place_down ]</rosparam>
+    <param name="tcpros_port" value="11630"/>
+    <param name="xmlrpc_port" value="11631"/>
+  </node>
+
+  <arg name="remote_coordinator" default="rosrpc://localhost:11600"/>
+  <node pkg="rosproxy" type="register.py" name="register_vehicle_notify_pick_up" args="service vehicle/notify_pick_up_completed $(arg remote_coordinator)" ns="icra"/>
+  <node pkg="rosproxy" type="register.py" name="register_vehicle_notify_place_down" args="service vehicle/notify_place_down_completed $(arg remote_coordinator)" ns="icra"/>
+</launch>

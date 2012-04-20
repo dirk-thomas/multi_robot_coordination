@@ -1,0 +1,16 @@
+<package>
+  <description brief="vehicle_service_interface">
+
+     vehicle_service_interface
+
+  </description>
+  <author>Dirk Thomas</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/vehicle_service_interface</url>
+
+  <depend package="rospy"/>
+
+</package>
+
+

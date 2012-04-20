@@ -1,8 +1,19 @@
 <launch>
   <node pkg="icra_coordinator" type="icra_coordinator.py" name="icra_coordinator" ns="icra"/>
+
   <node pkg="rosproxy" type="proxy.py" name="proxy" ns="icra">
-    <rosparam param="services">[ pr2/notify_pick_up_completed ]</rosparam>
+    <rosparam param="services">[ arm/notify_pick_up_completed, arm/notify_place_down_completed, pr2/notify_pick_up_completed, pr2/notify_place_down_completed, vehicle/notify_pick_up_completed, vehicle/notify_place_down_completed ]</rosparam>
     <param name="tcpros_port" value="11600"/>
     <param name="xmlrpc_port" value="11601"/>
   </node>
+
+  <arg name="remote_arm" default="rosrpc://localhost:11610"/>
+  <arg name="remote_pr2" default="rosrpc://localhost:11620"/>
+  <arg name="remote_vehicle" default="rosrpc://localhost:11630"/>
+  <node pkg="rosproxy" type="register.py" name="register_arm_trigger_pick_up" args="service arm/trigger_pick_up $(arg remote_arm)" ns="icra"/>
+  <node pkg="rosproxy" type="register.py" name="register_arm_trigger_place_down" args="service arm/trigger_place_down $(arg remote_arm)" ns="icra"/>
+  <node pkg="rosproxy" type="register.py" name="register_pr2_trigger_pick_up" args="service pr2/trigger_pick_up $(arg remote_pr2)" ns="icra"/>
+  <node pkg="rosproxy" type="register.py" name="register_pr2_trigger_place_down" args="service pr2/trigger_place_down $(arg remote_pr2)" ns="icra"/>
+  <node pkg="rosproxy" type="register.py" name="register_vehicle_trigger_pick_up" args="service vehicle/trigger_pick_up $(arg remote_vehicle)" ns="icra"/>
+  <node pkg="rosproxy" type="register.py" name="register_vehicle_trigger_place_down" args="service vehicle/trigger_place_down $(arg remote_vehicle)" ns="icra"/>
 </launch>

@@ -1,0 +1,16 @@
+<package>
+  <description brief="arm_service_interface">
+
+     arm_service_interface
+
+  </description>
+  <author>Dirk Thomas</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/arm_service_interface</url>
+
+  <depend package="rospy"/>
+
+</package>
+
+
