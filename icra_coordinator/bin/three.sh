@@ -15,7 +15,7 @@ gnome-terminal --title=Arm -x bash -i -c "export HISTFILE=$TMP_HISTORY; $FUERTE_
 
 TMP_HISTORY=/tmp/.bash_history_pr2
 echo "roslaunch pr2_service_interface pr2.launch --screen" > $TMP_HISTORY
-gnome-terminal --title=PR2 -x bash -i -c "export HISTFILE=$TMP_HISTORY; $FUERTE_BASH; $PACKAGE_PATH; $MASTER_HOST:11421; bash -i"
+gnome-terminal --title=PR2 -x bash -i -c "export HISTFILE=$TMP_HISTORY; $ELECTRIC_BASH; $PACKAGE_PATH; $MASTER_HOST:11421; bash -i"
 
 TMP_HISTORY=/tmp/.bash_history_vehicle
 echo "roslaunch vehicle_service_interface vehicle.launch --screen" > $TMP_HISTORY
